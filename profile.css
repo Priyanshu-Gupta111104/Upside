@@ -1,0 +1,99 @@
+/* == Embedded Profile Layout == */
+#embeddedProfile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 2rem;
+}
+
+#embeddedProfile .left-column,
+#embeddedProfile .right-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+#embeddedProfile section {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+}
+
+#embeddedProfile h2,
+#embeddedProfile h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#embeddedProfile input,
+#embeddedProfile textarea,
+#embeddedProfile select,
+#embeddedProfile button {
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#embeddedProfile textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#embeddedProfile button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+#embeddedProfile button:hover {
+  background-color: #0056b3;
+}
+
+#embeddedProfile ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#embeddedProfile ul li {
+  background: #f9f9f9;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#embeddedProfile ul li button {
+  background: transparent;
+  color: #333;
+  font-size: 1rem;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+#embeddedProfile .card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+#embeddedProfile .card h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #embeddedProfile {
+    flex-direction: column;
+  }
+}

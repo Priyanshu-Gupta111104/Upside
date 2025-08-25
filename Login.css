@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .logo {
+  width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+  
+  .login-box {
+    background-color: white;
+    padding: 40px 30px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 360px;              /* Fixed width */
+    height: 380.4px;           /* Fixed height */
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  .avatar {
+    width: 70px;
+    border-radius: 50%;
+    margin-bottom: 1px;
+  }
+  
+  .input-container {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  .input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #2196F3;
+    transition: 0.3s ease all;
+    transform: translateX(-50%);
+  }
+  
+  .input-container input:focus ~ .underline {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+  
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: none;
+    outline: none;
+  }
+  
+  .input-container label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: gray;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+  }
+  
+  .input-container input:focus ~ label,
+  .input-container input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 13px;
+    color: #2196F3;
+  }
+  
+  .input-container input:focus {
+    border-bottom: 2px solid #2196F3;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #1976D2;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .forgot {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    color: #1976D2;
+    font-size: 0.95em;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  .forgot:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+  }
+  
+ @media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+
+  .avatar {
+    width: 60px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduAdmin Dashboard | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-container">
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h1 class="logo">EduAdmin</h1>
+    <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+  </div>
+  <div class="user-profile">
+    <div class="avatar">
+      <span>AA</span>
+    </div>
+    <div class="user-info">
+      <h3>Admin User</h3>
+      <p>Administrator</p>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li class="active">
+      <a href="index.html">
+        <span class="material-icons-outlined">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="students.html">
+        <span class="material-icons-outlined">people</span>
+        <span>Students</span>
+      </a>
+    </li>
+    <li>
+      <a href="faculty.html">
+        <span class="material-icons-outlined">person</span>
+        <span>Faculty</span>
+      </a>
+    </li>
+    <li>
+      <a href="courses.html">
+        <span class="material-icons-outlined">school</span>
+        <span>Courses</span>
+      </a>
+    </li>
+    <li>
+      <a href="finances.html">
+        <span class="material-icons-outlined">account_balance_wallet</span>
+        <span>Finances</span>
+      </a>
+    </li>
+    <li>
+      <a href="enquiries.html">
+        <span class="material-icons-outlined">question_answer</span>
+        <span>Enquiries</span>
+      </a>
+    </li>
+    <li>
+      <a href="tasks.html">
+        <span class="material-icons-outlined">assignment</span>
+        <span>Tasks</span>
+      </a>
+    </li>
+    <li>
+      <a href="reports.html">
+        <span class="material-icons-outlined">bar_chart</span>
+        <span>Reports</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.html">
+        <span class="material-icons-outlined">settings</span>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <a href="#" id="logout-btn">
+      <span class="material-icons-outlined">logout</span>
+      <span>Logout</span>
+    </a>
+  </div>
+</nav>
+
+
+    <!-- Main Content Area -->
+<main class="main-content">
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="left-section">
+      <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+      <h2>Dashboard</h2>
+    </div>
+
+    <div class="right-section">
+      <div class="search-container">
+        <span class="material-icons-outlined">search</span>
+        <input type="text" placeholder="Search..." />
+      </div>
+
+      <div class="notification-icon" id="notifBell">
+  <!-- Bell Icon -->
+  <span class="material-icons-outlined">notifications</span>
+
+  <!-- Main total badge -->
+  <span class="notif-badge" id="notificationBadge">0</span>
+
+  <!-- Separate count badges -->
+  <span class="notif-badge task-badge" id="notifTaskCount">0</span>
+  <span class="notif-badge note-badge" id="notifNoteCount">0</span>
+
+  <!-- Dropdown panel -->
+  <div class="notif-panel hidden" id="notificationDropdown">
+    <div class="notif-arrow"></div>
+
+    <div class="notif-section">
+      <h4>Tasks (<span id="notifTaskCountLabel">0</span>)</h4>
+      <div id="notifTasks" class="notif-list"></div>
+    </div>
+
+    <div class="notif-section">
+      <h4>Notes (<span id="notifNoteCountLabel">0</span>)</h4>
+      <div id="notifNotes" class="notif-list"></div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </header>
+
+      </header>
+      
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+          <div class="welcome-card">
+            <div class="welcome-text">
+              <h2>Welcome Back, Admin!</h2>
+              <p>Here's what's happening with your institute today.</p>
+            </div>
+            <div class="date-display">
+              <span id="current-date">Monday, April 10, 2025</span>
+            </div>
+          </div>
+        </section>
+<!-- KPI Stats Cards -->
+<section class="kpi-stats">
+  <div class="stat-card student-stat">
+    <div class="stat-icon">
+      <span class="material-icons-outlined">people</span>
+    </div>
+    <div class="stat-details">
+      <h3>Total Students</h3>
+      <p class="stat-value" id="total-students">543</p>
+      <p class="stat-change positive">+12% <span class="material-icons-outlined">trending_up</span></p>
+    </div>
+  </div>
+
+  <div class="stat-card enquiry-stat">
+    <div class="stat-icon">
+      <span class="material-icons-outlined">contact_support</span>
+    </div>
+    <div class="stat-details">
+      <h3>New Enquiries</h3>
+      <p class="stat-value" id="new-enquiries">42</p>
+      <p class="stat-change positive">+8% <span class="material-icons-outlined">trending_up</span></p>
+    </div>
+  </div>
+
+  <div class="stat-card revenue-stat">
+    <div class="stat-icon">
+      <span class="material-icons-outlined">payments</span>
+    </div>
+    <div class="stat-details">
+      <h3>Monthly Revenue</h3>
+      <p class="stat-value" id="monthly-revenue">₹192,500</p>
+      <p class="stat-change positive">+15% <span class="material-icons-outlined">trending_up</span></p>
+    </div>
+  </div>
+
+  <div class="stat-card course-stat">
+    <div class="stat-icon">
+      <span class="material-icons-outlined">school</span>
+    </div>
+    <div class="stat-details">
+      <h3>Active Courses</h3>
+      <p class="stat-value" id="active-courses">12</p>
+      <p class="stat-change">+0% <span class="material-icons-outlined">trending_flat</span></p>
+    </div>
+  </div>
+
+  <div class="stat-card active-student-stat">
+    <div class="stat-icon">
+      <span class="material-icons-outlined">person</span>
+    </div>
+    <div class="stat-details">
+      <h3>Active Students</h3>
+      <p class="stat-value" id="active-students">33</p>
+      <p class="stat-change positive">+1% <span class="material-icons-outlined">trending_up</span></p>
+    </div>
+  </div>
+</section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+          <div class="chart-container full-width">
+            <div class="chart-header">
+              <h3>Revenue & Expenses Overview</h3>
+              <div class="chart-actions">
+                <select id="revenue-chart-timeframe">
+                  <option value="monthly">Monthly</option>
+                  <option value="quarterly">Quarterly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+                <span class="material-icons-outlined">more_vert</span>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="revenue-chart"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <section class="charts-grid">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Enrollment Trends</h3>
+              <div class="chart-actions">
+                <span class="material-icons-outlined">more_vert</span>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="enrollment-chart"></canvas>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Course Popularity</h3>
+              <div class="chart-actions">
+                <span class="material-icons-outlined">more_vert</span>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="course-popularity-chart"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- Upcoming Classes and Pending Tasks -->
+        <section class="classes-tasks">
+          <div class="upcoming-classes">
+            <div class="section-header">
+              <h3>Upcoming Classes</h3>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="class-list">
+              <div class="class-item">
+                <div class="class-time">
+                  <h4>10:00 AM</h4>
+                  <p>Today</p>
+                </div>
+                <div class="class-details">
+                  <h4>Web Development</h4>
+                  <p>Batch: WD-23 | Room: Lab 2</p>
+                  <p>Faculty: Priya Sharma</p>
+                </div>
+                <div class="class-actions">
+                  <span class="material-icons-outlined">more_vert</span>
+                </div>
+              </div>
+              <div class="class-item">
+                <div class="class-time">
+                  <h4>2:00 PM</h4>
+                  <p>Today</p>
+                </div>
+                <div class="class-details">
+                  <h4>Data Science Fundamentals</h4>
+                  <p>Batch: DS-12 | Room: Lab 3</p>
+                  <p>Faculty: Rahul Gupta</p>
+                </div>
+                <div class="class-actions">
+                  <span class="material-icons-outlined">more_vert</span>
+                </div>
+              </div>
+              <div class="class-item">
+                <div class="class-time">
+                  <h4>11:00 AM</h4>
+                  <p>Tomorrow</p>
+                </div>
+                <div class="class-details">
+                  <h4>UI/UX Design Workshop</h4>
+                  <p>Batch: UX-05 | Room: Lab 1</p>
+                  <p>Faculty: Vikram Singh</p>
+                </div>
+                <div class="class-actions">
+                  <span class="material-icons-outlined">more_vert</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pending-tasks">
+            <div class="section-header">
+              <h3>Pending Tasks</h3>
+              <a href="tasks.html" class="view-all">View All</a>
+            </div>
+            <div class="task-list">
+              <div class="task-item">
+                <input type="checkbox" id="task1" class="task-checkbox">
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="main.js"></script>
+  <script type="module" src="charts.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

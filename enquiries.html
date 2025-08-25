@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiries Management | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="enquiries.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">EduAdmin</h1>
+        <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+      </div>
+      <div class="user-profile">
+        <div class="avatar"><span>AA</span></div>
+        <div class="user-info">
+          <h3>Admin User</h3>
+          <p>Administrator</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="material-icons-outlined">people</span> Students</a></li>
+        <li><a href="courses.html"><span class="material-icons-outlined">school</span> Courses</a></li>
+        <li><a href="faculty.html"><span class="material-icons-outlined">person</span> Faculty</a></li>
+        <li><a href="finances.html"><span class="material-icons-outlined">payments</span> Finances</a></li>
+        <li class="active"><a href="enquiries.html"><span class="material-icons-outlined">contact_support</span> Enquiries</a></li>
+        <li><a href="tasks.html"><span class="material-icons-outlined">task</span> Tasks</a></li>
+        <li><a href="reports.html"><span class="material-icons-outlined">bar_chart</span> Reports</a></li>
+        <li><a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a></li>
+         <div class="sidebar-footer">
+    <a href="#" id="logout-btn">
+      <span class="material-icons-outlined">logout</span>
+      <span>Logout</span>
+    </a>
+  </div>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="left-section">
+          <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+          <h2>Enquiries Management</h2>
+        </div>
+        <div class="right-section">
+          <button class="btn btn-primary add-enquiry-btn">
+            <span class="material-icons-outlined">add</span>
+            Add New Enquiry
+          </button>
+        </div>
+      </header>
+
+      <!-- Summary Cards -->
+      <div class="summary-cards">
+        <div class="summary-card total-enquiries">
+          <div class="icon"><span class="material-icons-outlined">contact_support</span></div>
+          <div class="details">
+            <h3>Total Enquiries</h3>
+            <p id="totalEnquiries">0</p>
+          </div>
+        </div>
+        <div class="summary-card open-enquiries">
+          <div class="icon"><span class="material-icons-outlined">pending</span></div>
+          <div class="details">
+            <h3>Open Enquiries</h3>
+            <p id="openEnquiries">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enquiries Section -->
+      <div id="enquiriesSection">
+        <!-- Filters -->
+        <div class="filter-section">
+          <select id="statusFilter" class="filter-select">
+            <option value="">All Status</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <select id="adminFilter" class="filter-select"><option value="">All Admins</option></select>
+          <select id="courseFilter" class="filter-select"><option value="">All Courses</option></select>
+          <input type="text" id="searchInput" class="filter-input" placeholder="Search by name or email" />
+          <button id="resetFiltersBtn" class="filter-reset-btn">Reset Filters</button>
+        </div>
+
+        <!-- Table -->
+        <div class="enquiries-table">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Interested Course</th>
+                <th>Enquiry Date</th><th>Status</th><th>Assigned Admin</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="enquiriesTableBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal" id="enquiryModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 id="modalTitle">Add New Enquiry</h3>
+              <span class="material-icons-outlined modal-close">close</span>
+            </div>
+            <form id="enquiryForm" class="enquiry-form">
+              <div class="form-row">
+                <div class="form-group"><label>Full Name</label><input type="text" id="fullName" required></div>
+                <div class="form-group"><label>Email</label><input type="email" id="email" required></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Phone</label><input type="tel" id="phone" required></div>
+                <div class="form-group"><label>Interested Course</label><select id="course" required></select></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Enquiry Date</label><input type="date" id="enquiryDate" required></div>
+                <div class="form-group"><label>Status</label><select id="status" required>
+                  <option value="Open">Open</option><option value="Closed">Closed</option></select></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Assigned Admin</label><select id="assignedAdmin" required></select></div>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Enquiry</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="toast" class="toast"></div>
+      </div>
+
+      <!-- Inline Profile Section -->
+      <div id="embeddedProfile" class="profile-container" style="display: none;"></div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="main.js"></script>
+  <script type="module" src="enquiries.js"></script>
+</body>
+</html>

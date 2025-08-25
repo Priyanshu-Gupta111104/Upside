@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Management | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="faculty.css">
+</head>
+<body>
+  <div class="app-container">
+   <!-- Sidebar Navigation -->
+   <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1 class="logo">EduAdmin</h1>
+      <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+    </div>
+    <div class="user-profile">
+      <div class="avatar">
+        <span>AA</span>
+      </div>
+      <div class="user-info">
+        <h3>Admin User</h3>
+        <p>Administrator</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">
+          <span class="material-icons-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="students.html">
+          <span class="material-icons-outlined">people</span>
+          <span>Students</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="faculty.html">
+          <span class="material-icons-outlined">person</span>
+          <span>Faculty</span>
+        </a>
+      </li>
+      <li>
+        <a href="courses.html">
+          <span class="material-icons-outlined">school</span>
+          <span>Courses</span>
+        </a>
+      </li>
+      <li>
+        <a href="finances.html">
+          <span class="material-icons-outlined">account_balance_wallet</span>
+          <span>Finances</span>
+        </a>
+      </li>
+      <li>
+        <a href="enquiries.html">
+          <span class="material-icons-outlined">question_answer</span>
+          <span>Enquiries</span>
+        </a>
+      </li>
+      <li>
+        <a href="tasks.html">
+          <span class="material-icons-outlined">assignment</span>
+          <span>Tasks</span>
+        </a>
+      </li>
+      <li>
+        <a href="reports.html">
+          <span class="material-icons-outlined">bar_chart</span>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <span class="material-icons-outlined">settings</span>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="#" id="logout-btn">
+        <span class="material-icons-outlined">logout</span>
+        <span>Logout</span>
+      </a>
+    </div>
+  </nav>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="left-section">
+          <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+          <h2>Faculty Management</h2>
+        </div>
+        <div class="right-section">
+          <button class="add-faculty-btn">
+            <span class="material-icons-outlined">person_add</span>
+            Add New Faculty
+          </button>
+        </div>
+      </header>
+
+      <div class="faculty-grid">
+        <div class="faculty-card">
+          <div class="faculty-avatar">PS</div>
+          <div class="faculty-info">
+            <h3>Priya Sharma</h3>
+            <p class="designation">Senior Web Developer</p>
+            <div class="stats">
+              <div class="stat">
+                <span class="label">Students</span>
+                <span class="value">45</span>
+              </div>
+              <div class="stat">
+                <span class="label">Courses</span>
+                <span class="value">3</span>
+              </div>
+              <div class="stat">
+                <span class="label">Rating</span>
+                <span class="value">4.8</span>
+              </div>
+            </div>
+          </div>
+          <div class="faculty-actions">
+            <button class="view-btn"><span class="material-icons-outlined">visibility</span></button>
+            <button class="edit-btn"><span class="material-icons-outlined">edit</span></button>
+            <button class="delete-btn"><span class="material-icons-outlined">delete</span></button>
+          </div>
+        </div>
+
+        <!-- More faculty cards... -->
+      </div>
+    </main>
+  </div>
+  <!-- Faculty Form Modal -->
+<div id="facultyModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h2>Add New Faculty</h2>
+    <form id="facultyForm">
+      <input type="text" id="facultyName" placeholder="Full Name" required />
+      <input type="text" id="facultyDesignation" placeholder="Designation" required />
+      <input type="number" id="facultyStudents" placeholder="No. of Students" required />
+      <input type="number" id="facultyCourses" placeholder="No. of Courses" required />
+      <input type="number" step="0.1" max="5" id="facultyRating" placeholder="Rating (max 5)" required />
+      <button type="submit">Add Faculty</button>
+    </form>
+  </div>
+</div>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="faculty.js"></script>
+</body>
+</html>

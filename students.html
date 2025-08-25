@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="students.css">
+</head>
+<body>
+  <div class="app-container">
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1 class="logo">EduAdmin</h1>
+      <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+    </div>
+    <div class="user-profile">
+      <div class="avatar">
+        <span>AA</span>
+      </div>
+      <div class="user-info">
+        <h3>Admin User</h3>
+        <p>Administrator</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">
+          <span class="material-icons-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="students.html">
+          <span class="material-icons-outlined">people</span>
+          <span>Students</span>
+        </a>
+      </li>
+      <li>
+        <a href="faculty.html">
+          <span class="material-icons-outlined">person</span>
+          <span>Faculty</span>
+        </a>
+      </li>
+      <li>
+        <a href="courses.html">
+          <span class="material-icons-outlined">school</span>
+          <span>Courses</span>
+        </a>
+      </li>
+      <li>
+        <a href="finances.html">
+          <span class="material-icons-outlined">account_balance_wallet</span>
+          <span>Finances</span>
+        </a>
+      </li>
+      <li>
+        <a href="enquiries.html">
+          <span class="material-icons-outlined">question_answer</span>
+          <span>Enquiries</span>
+        </a>
+      </li>
+      <li>
+        <a href="tasks.html">
+          <span class="material-icons-outlined">assignment</span>
+          <span>Tasks</span>
+        </a>
+      </li>
+      <li>
+        <a href="reports.html">
+          <span class="material-icons-outlined">bar_chart</span>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <span class="material-icons-outlined">settings</span>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="#" id="logout-btn">
+        <span class="material-icons-outlined">logout</span>
+        <span>Logout</span>
+      </a>
+    </div>
+  </nav>
+
+
+   <!-- Main Content -->
+   <main class="main-content">
+    <header class="top-header">
+      <div class="left-section">
+        <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+        <h2>Student Management</h2>
+      </div>
+      <div class="right-section">
+        <!-- <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search students...">
+          <span class="material-icons-outlined">search</span>
+        </div> -->
+        <button class="btn btn-primary add-student-btn">
+          <span class="material-icons-outlined">add</span>
+          Add New Student
+        </button>
+      </div>
+    </header>
+    <div class="filter-section">
+     <select id="courseFilter" class="filter-select"></select>
+    
+      <select id="batchFilter" class="filter-select">
+        <option value="">All Batches</option>
+        <option value="Morning">Morning</option>
+        <option value="Afternoon">Afternoon</option>
+        <option value="Evening">Evening</option>
+      </select>
+    
+      <select id="statusFilter" class="filter-select">
+        <option value="">All Status</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+    
+      <input type="text" id="searchInput" placeholder="Search..." class="filter-select" />
+    
+      <button id="resetFiltersBtn" class="filter-reset-btn">Reset Filters</button>
+    </div>
+    
+      <!-- Students Table -->
+      <div class="students-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Course</th>
+              <th>Batch</th>
+              <th>Join Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Students will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add Student Modal -->
+      <div class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Add New Student</h3>
+            <span class="material-icons-outlined modal-close">close</span>
+          </div>
+          <form id="studentForm" class="student-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="studentEmail">Email</label>
+                <input type="email" id="studentEmail" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="studentPhone">Phone</label>
+                <input type="tel" id="studentPhone" class="form-control" required maxlength="10" />
+
+              </div>
+              <div class="form-group">
+                <label for="studentCourse">Course</label>
+                <select id="courseDropdown" class="form-control" required>
+  <option value="">-- Select Course --</option>
+</select>
+
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="studentBatch">Batch</label>
+                <select id="studentBatch" class="form-control" required>
+                  <option value="">Select Batch</option>
+                  <option value="Morning">Morning</option>
+                  <option value="Afternoon">Afternoon</option>
+                  <option value="Evening">Evening</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="joinDate">Join Date</label>
+                <input type="date" id="joinDate" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="studentStatus">Status</label>
+                <select id="studentStatus" class="form-control" required>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+            <div class form-row>
+              <div class="form-group">
+                <label for ="Faculty">Assign Faculty</label>
+                <select id="facultyDropdown" class="form-control" required>
+                  <option value="">-- Select Faculty --</option>
+                </select>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Add Student</button>
+              <br>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+ <script type="module" src="main.js"></script>
+<script type="module" src="students.js"></script>
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+  <div class="app-container">
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h1 class="logo">EduAdmin</h1>
+    <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+  </div>
+  <div class="user-profile">
+    <div class="avatar">
+      <span>AA</span>
+    </div>
+    <div class="user-info">
+      <h3>Admin User</h3>
+      <p>Administrator</p>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="index.html">
+        <span class="material-icons-outlined">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="students.html">
+        <span class="material-icons-outlined">people</span>
+        <span>Students</span>
+      </a>
+    </li>
+    <li>
+      <a href="faculty.html">
+        <span class="material-icons-outlined">person</span>
+        <span>Faculty</span>
+      </a>
+    </li>
+    <li>
+      <a href="courses.html">
+        <span class="material-icons-outlined">school</span>
+        <span>Courses</span>
+      </a>
+    </li>
+    <li>
+      <a href="finances.html">
+        <span class="material-icons-outlined">account_balance_wallet</span>
+        <span>Finances</span>
+      </a>
+    </li>
+    <li>
+      <a href="enquiries.html">
+        <span class="material-icons-outlined">question_answer</span>
+        <span>Enquiries</span>
+      </a>
+    </li>
+    <li>
+      <a href="tasks.html">
+        <span class="material-icons-outlined">assignment</span>
+        <span>Tasks</span>
+      </a>
+    </li>
+    <li class="active">
+      <a href="reports.html">
+        <span class="material-icons-outlined">bar_chart</span>
+        <span>Reports</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.html">
+        <span class="material-icons-outlined">settings</span>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <a href="#" id="logout-btn">
+      <span class="material-icons-outlined">logout</span>
+      <span>Logout</span>
+    </a>
+  </div>
+</nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="left-section">
+          <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+          <h2>Reports</h2>
+        </div>
+        <div class="right-section">
+          <button class="generate-report-btn">
+            <span class="material-icons-outlined">download</span>
+            Generate Report
+          </button>
+        </div>
+      </header>
+
+      <div class="reports-container">
+        <div class="report-filters">
+          <div class="filter-group">
+            <label>Date Range</label>
+            <select id="date-range">
+              <option>Last 7 days</option>
+              <option>Last 30 days</option>
+              <option>Last 3 months</option>
+              <option>Last year</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Report Type</label>
+            <select id="report-type">
+              <option>Revenue Report</option>
+              <option>Student Performance</option>
+              <option>Course Analytics</option>
+              <option>Faculty Report</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="report-charts">
+          <div class="chart-container">
+            <h3>Revenue Overview</h3>
+            <canvas id="revenue-chart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>Student Enrollment Trends</h3>
+            <canvas id="enrollment-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="report-tables">
+          <div class="table-container">
+            <h3>Recent Transactions</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2025-04-10</td>
+                  <td>Course Fee - Web Development</td>
+                  <td>₹45,000</td>
+                  <td><span class="badge success">Completed</span></td>
+                </tr>
+                <!-- More rows... -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="main.js"></script>
+  <script type="module" src="charts.js"></script>
+  <script type="module" src="reports.js"></script>
+</body>
+</html>

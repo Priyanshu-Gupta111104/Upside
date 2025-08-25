@@ -1,0 +1,124 @@
+/* Finances Page Specific Styles */
+.finance-content {
+    padding-bottom: var(--spacing-xxl);
+  }
+  
+  /* Finance Overview Styles */
+  .finance-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .stat-period {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+  
+  .revenue .stat-icon {
+    background-color: rgba(45, 206, 137, 0.1);
+    color: var(--success-color);
+  }
+  
+  .expenses .stat-icon {
+    background-color: rgba(245, 54, 92, 0.1);
+    color: var(--danger-color);
+  }
+  
+  .profit .stat-icon {
+    background-color: rgba(94, 114, 228, 0.1);
+    color: var(--secondary-color);
+  }
+  
+  .pending .stat-icon {
+    background-color: rgba(251, 99, 64, 0.1);
+    color: var(--warning-color);
+  }
+  
+  /* Finance Charts Styles */
+  .finance-charts {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .finance-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  /* Responsive Styles for Finances Page */
+  @media (max-width: 1200px) {
+    .finance-overview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .finance-charts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section-header.with-actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+    
+    .header-actions {
+      width: 100%;
+    }
+    
+    .header-actions button {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .finance-overview {
+      grid-template-columns: 1fr;
+    }
+  }
+  .modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; justify-content: center; align-items: center;
+  z-index: 999;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: #fff; padding: 2rem; border-radius: 10px; width: 400px;
+}
+.modal h2 { margin-bottom: 1rem; }
+.modal label { display: block; margin-top: 1rem; }
+.modal input, .modal select {
+  width: 100%; padding: 0.5rem; margin-top: 0.5rem;
+}
+.modal-buttons { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 10px; }
+.export-btn {
+  background-color: #4e73df; /* Permanent blue */
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.export-btn:hover {
+  background-color: #3758c3; /* Slightly darker on hover */
+}
+
+.export-btn i {
+  font-size: 1rem;
+}

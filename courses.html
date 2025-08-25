@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Management | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="courses.css">
+</head>
+<body>
+  
+  <div class="app-container">
+   <!-- Sidebar Navigation -->
+   <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1 class="logo">EduAdmin</h1>
+      <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+    </div>
+    <div class="user-profile">
+      <div class="avatar">
+        <span>AA</span>
+      </div>
+      <div class="user-info">
+        <h3>Admin User</h3>
+        <p>Administrator</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">
+          <span class="material-icons-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="students.html">
+          <span class="material-icons-outlined">people</span>
+          <span>Students</span>
+        </a>
+      </li>
+      <li>
+        <a href="faculty.html">
+          <span class="material-icons-outlined">person</span>
+          <span>Faculty</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="courses.html">
+          <span class="material-icons-outlined">school</span>
+          <span>Courses</span>
+        </a>
+      </li>
+      <li>
+        <a href="finances.html">
+          <span class="material-icons-outlined">account_balance_wallet</span>
+          <span>Finances</span>
+        </a>
+      </li>
+      <li>
+        <a href="enquiries.html">
+          <span class="material-icons-outlined">question_answer</span>
+          <span>Enquiries</span>
+        </a>
+      </li>
+      <li>
+        <a href="tasks.html">
+          <span class="material-icons-outlined">assignment</span>
+          <span>Tasks</span>
+        </a>
+      </li>
+      <li>
+        <a href="reports.html">
+          <span class="material-icons-outlined">bar_chart</span>
+          <span>Reports</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <span class="material-icons-outlined">settings</span>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="#" id="logout-btn">
+        <span class="material-icons-outlined">logout</span>
+        <span>Logout</span>
+      </a>
+    </div>
+  </nav>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="left-section">
+          <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+          <h2>Course Management</h2>
+        </div>
+        <div class="right-section">
+          <button class="add-course-btn">
+            <span class="material-icons-outlined">add</span>
+            Add New Course
+          </button>
+        </div>
+      </header>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-header">
+            <h3>Web Development</h3>
+            <span class="badge active">Active</span>
+          </div>
+          <div class="course-details">
+            <p><span class="material-icons-outlined">schedule</span> Duration: 3 months</p>
+            <p><span class="material-icons-outlined">groups</span> Students: 45</p>
+            <p><span class="material-icons-outlined">payments</span> Fee: ₹45,000</p>
+          </div>
+          <div class="course-actions">
+            <button class="edit-btn"><span class="material-icons-outlined">edit</span></button>
+            <button class="delete-btn"><span class="material-icons-outlined">delete</span></button>
+          </div>
+        </div>
+
+        <!-- More course cards... -->
+      </div>
+        <!-- Add Course Form (Initially Hidden) -->
+        <div class="add-course-form-container" style="display: none;">
+          <form class="add-course-form">
+            <h3>Add New Course</h3>
+            <label>
+              Course Name:
+              <input type="text" id="course-name" required>
+            </label>
+            <label>
+              Duration:
+              <input type="text" id="course-duration" required>
+            </label>
+            <label>
+              Fee:
+              <input type="number" id="course-fee" required>
+            </label>
+            <label>
+              Status:
+              <select id="course-status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </label>
+            <div class="form-buttons">
+              <button type="submit" class="save-course-btn">Save</button>
+              <button type="button" class="cancel-course-btn">Cancel</button>
+            </div>
+          </form>
+        </div>
+  
+    </main>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="courses.js"></script>
+</body>
+</html>

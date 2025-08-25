@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks | Institute Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tasks.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">EduAdmin</h1>
+        <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">
+          <span>AA</span>
+        </div>
+        <div class="user-info">
+          <h3>Admin User</h3>
+          <p>Administrator</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="material-icons-outlined">people</span> Students</a></li>
+        <li><a href="courses.html"><span class="material-icons-outlined">school</span> Courses</a></li>
+        <li><a href="faculty.html"><span class="material-icons-outlined">person</span> Faculty</a></li>
+        <li><a href="finances.html"><span class="material-icons-outlined">payments</span> Finances</a></li>
+        <li><a href="enquiries.html"><span class="material-icons-outlined">contact_support</span> Enquiries</a></li>
+        <li class="active"><a href="tasks.html"><span class="material-icons-outlined">task</span> Tasks</a></li>
+        <li><a href="reports.html"><span class="material-icons-outlined">bar_chart</span> Reports</a></li>
+        <li><a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="left-section">
+          <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+          <h2>Task Management</h2>
+        </div>
+        <div class="right-section">
+          <button class="btn btn-primary add-task-btn">
+            <span class="material-icons-outlined">add</span>
+            Add New Task
+          </button>
+        </div>
+      </header>
+
+      <!-- Task Categories -->
+      <div class="task-categories">
+        <div class="category all active">
+          <span class="material-icons-outlined">list</span>
+          <span>All Tasks</span>
+          <span class="count">0</span>
+        </div>
+        <div class="category pending">
+          <span class="material-icons-outlined">pending</span>
+          <span>Pending</span>
+          <span class="count">0</span>
+        </div>
+        <div class="category in-progress">
+          <span class="material-icons-outlined">autorenew</span>
+          <span>In Progress</span>
+          <span class="count">0</span>
+        </div>
+        <div class="category completed">
+          <span class="material-icons-outlined">check_circle</span>
+          <span>Completed</span>
+          <span class="count">0</span>
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <div class="task-list" id="taskList">
+        <!-- Tasks will be added here dynamically -->
+      </div>
+
+      <!-- Add/Edit Task Modal -->
+      <div class="modal" id="taskModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modalTitle">Add New Task</h3>
+            <span class="material-icons-outlined modal-close">close</span>
+          </div>
+          <form id="taskForm" class="task-form">
+            <div class="form-group">
+              <label for="taskTitle">Task Title</label>
+              <input type="text" id="taskTitle" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="taskDescription">Description</label>
+              <textarea id="taskDescription" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dueDate">Due Date</label>
+                <input type="date" id="dueDate" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="priority">Priority</label>
+                <select id="priority" class="form-control" required>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="assignedTo">Assigned To</label>
+                <select id="assignedTo" class="form-control" required>
+                  <option value="">Select Staff</option>
+                  <option value="John Doe">John Doe</option>
+                  <option value="Jane Smith">Jane Smith</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" class="form-control" required>
+                  <option value="pending">Pending</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Task</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast"></div>
+    </main>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="tasks.js"></script>
+</body>
+</html>

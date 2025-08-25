@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Management | EduAdmin</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="finances.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">EduAdmin</h1>
+        <span class="material-icons-outlined close-sidebar" id="close-sidebar">close</span>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">AA</div>
+        <div class="user-info">
+          <h3>Admin User</h3>
+          <p>Administrator</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="material-icons-outlined">people</span> Students</a></li>
+        <li><a href="faculty.html"><span class="material-icons-outlined">person</span> Faculty</a></li>
+        <li><a href="courses.html"><span class="material-icons-outlined">school</span> Courses</a></li>
+        <li class="active"><a href="finances.html"><span class="material-icons-outlined">account_balance_wallet</span> Finances</a></li>
+        <li><a href="enquiries.html"><span class="material-icons-outlined">question_answer</span> Enquiries</a></li>
+        <li><a href="tasks.html"><span class="material-icons-outlined">assignment</span> Tasks</a></li>
+        <li><a href="reports.html"><span class="material-icons-outlined">bar_chart</span> Reports</a></li>
+        <li><a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <a href="#" id="logout-btn"><span class="material-icons-outlined">logout</span> Logout</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="left-section">
+          <span class="material-icons-outlined menu-trigger" id="menu-trigger">menu</span>
+          <h2>Financial Management</h2>
+        </div>
+       
+      </header>
+
+      <div class="finance-content">
+        <!-- Finance Overview -->
+        <section class="finance-overview">
+          <div class="stat-card revenue">
+            <span class="material-icons-outlined">payments</span>
+            <h3>Total Revenue</h3>
+            <p class="stat-value">₹1,92,500</p>
+            <p class="stat-period">This Month</p>
+          </div>
+          <div class="stat-card expenses">
+            <span class="material-icons-outlined">money_off</span>
+            <h3>Total Expenses</h3>
+            <p class="stat-value">₹68,750</p>
+            <p class="stat-period">This Month</p>
+          </div>
+          <div class="stat-card profit">
+            <span class="material-icons-outlined">trending_up</span>
+            <h3>Net Profit</h3>
+            <p class="stat-value">₹1,23,750</p>
+            <p class="stat-period">This Month</p>
+          </div>
+          <div class="stat-card pending">
+            <span class="material-icons-outlined">receipt_long</span>
+            <h3>Pending Dues</h3>
+            <p class="stat-value">₹45,000</p>
+            <p class="stat-period">Total</p>
+          </div>
+        </section>
+
+        <!-- Finance Charts -->
+        <section class="finance-charts">
+          <div class="chart-container full-width">
+            <div class="chart-header">
+              <h3>Revenue vs Expenses (Monthly)</h3>
+              <div class="chart-actions">
+                <select id="finance-chart-year">
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                </select>
+                <span class="material-icons-outlined">more_vert</span>
+              </div>
+            </div>
+            <canvas id="revenue-expense-chart"></canvas>
+          </div>
+        </section>
+
+        <section class="finance-charts-grid">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Revenue by Course</h3>
+              <div class="chart-actions">
+                <select id="course-revenue-period">
+                  <option value="monthly">Monthly</option>
+                  <option value="quarterly">Quarterly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+                <span class="material-icons-outlined">more_vert</span>
+              </div>
+            </div>
+            <canvas id="course-revenue-chart"></canvas>
+          </div>
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Expense Breakdown</h3>
+              <div class="chart-actions">
+                <select id="expense-breakdown-period">
+                  <option value="monthly">Monthly</option>
+                  <option value="quarterly">Quarterly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+                <span class="material-icons-outlined">more_vert</span>
+              </div>
+            </div>
+            <canvas id="expense-breakdown-chart"></canvas>
+          </div>
+        </section>
+        
+
+        <!-- Recent Transactions -->
+        <section class="recent-transactions">
+          <div class="section-header with-actions">
+            <h3>Recent Transactions</h3>
+            <div class="header-actions">
+              <button class="primary-btn"><span class="material-icons-outlined">add</span> Add Transaction</button>
+             <button id="exportBtn" class="export-btn">
+  <i class="material-icons"></i> Export CSV
+</button>
+
+            </div>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>TRX001</td>
+                  <td>Apr 10, 2025</td>
+                  <td>Fee payment - Rahul Sharma</td>
+                  <td>Course Fee</td>
+                  <td>₹15,000</td>
+                  <td><span class="badge income">Income</span></td>
+                  <td><span class="badge completed">Completed</span></td>
+                  <td>
+                    <button class="icon-btn"><span class="material-icons-outlined">visibility</span></button>
+                    <button class="icon-btn"><span class="material-icons-outlined">edit</span></button>
+                    <button class="icon-btn"><span class="material-icons-outlined">delete</span></button>
+                  </td>
+                </tr>
+                <!-- Repeated rows condensed; structure is identical -->
+                <tr>
+                  <td>TRX002</td>
+                  <td>Apr 8, 2025</td>
+                  <td>Faculty salary - Priya Sharma</td>
+                  <td>Salary</td>
+                  <td>₹35,000</td>
+                  <td><span class="badge expense">Expense</span></td>
+                  <td><span class="badge completed">Completed</span></td>
+                  <td>
+                    <button class="icon-btn"><span class="material-icons-outlined">visibility</span></button>
+                    <button class="icon-btn"><span class="material-icons-outlined">edit</span></button>
+                    <button class="icon-btn"><span class="material-icons-outlined">delete</span></button>
+                  </td>
+                </tr>
+                <!-- Add other rows as needed -->
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination">
+            <button class="pagination-btn"><span class="material-icons-outlined">chevron_left</span></button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-btn">10</button>
+            <button class="pagination-btn"><span class="material-icons-outlined">chevron_right</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <!-- Transaction Modal -->
+<div class="modal-overlay" id="transactionModalOverlay">
+  <div class="modal" id="transactionModal">
+    <h2 id="modalTitle">Add Transaction</h2>
+    <form id="transactionForm">
+      <label>Description</label>
+      <input type="text" id="description" required />
+
+      <label>Category</label>
+      <input type="text" id="category" required />
+
+      <label>Amount (₹)</label>
+      <input type="number" id="amount" required />
+
+      <label>Type</label>
+      <select id="type" required>
+        <option value="Income">Income</option>
+        <option value="Expense">Expense</option>
+      </select>
+
+      <label>Status</label>
+      <select id="status" required>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+
+      <div class="modal-buttons">
+        <button type="submit" class="primary-btn">Save</button>
+        <button type="button" class="secondary-btn" id="closeModalBtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="main.js"></script>
+  <script type="module" src="charts.js"></script>
+  <script type="module" src="finances.js"></script>
+</body>
+</html>

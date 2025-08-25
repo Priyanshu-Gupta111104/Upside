@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="Login.css"/>
+</head>
+<body>
+  <div class="container">
+    <img src="Login Upperside.png" alt="Logo" class="logo" />
+
+    <div class="login-box">
+      <img src="Upside logo.jpg" alt="Avatar" class="avatar" />
+
+      <div class="input-container">
+        <input type="text" id="username" placeholder=" " required />
+        <label for="username">Username</label>
+        <span class="underline"></span>
+      </div>
+      
+      <div class="input-container">
+        <input type="password" id="password" placeholder=" " required />
+        <label for="password">Password</label>
+        <span class="underline"></span>
+      </div>
+      
+      <button onclick="signIn()">SIGN IN</button>
+      <a href="#" class="forgot">Forget password?</a>
+    </div>
+  </div>
+
+  <script>
+    function signIn() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (username && password) {
+    alert(`Signed in as ${username}`);
+  } else {
+    alert("Please enter both username and password.");
+  }
+}
+  </script>
+</body>
+</html>

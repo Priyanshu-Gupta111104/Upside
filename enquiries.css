@@ -1,0 +1,388 @@
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #5e72e4;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+
+/* ===================== Summary Cards ===================== */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
+.summary-card .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-card .icon span {
+  font-size: 1.5rem;
+}
+
+.summary-card.total-enquiries .icon {
+  background-color: rgba(94, 114, 228, 0.1);
+}
+
+.summary-card.total-enquiries .icon span {
+  color: #5e72e4;
+}
+
+.summary-card.open-enquiries .icon {
+  background-color: rgba(251, 99, 64, 0.1);
+}
+
+.summary-card.open-enquiries .icon span {
+  color: #fb6340;
+}
+
+.summary-card .details h3 {
+  font-size: 0.875rem;
+  color: #8898aa;
+  margin-bottom: 0.25rem;
+}
+
+.summary-card .details p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #32325d;
+  margin: 0;
+}
+
+/* ===================== Filter Section ===================== */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.filter-select {
+  min-width: 150px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.filter-select:focus {
+  border-color: #0f1640;
+  outline: none;
+}
+.filter-select option {
+  padding: 0.5rem;
+  background-color: #f9f6f6;
+  color: #538e2c;
+}
+.filter-input {
+  min-width: 200px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.filter-reset-btn {
+  padding: 0.5rem 1rem;
+  background-color: #f5365c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-reset-btn:hover {
+  background-color: #d02c4a;
+}
+
+
+/* ===================== Enquiries Table ===================== */
+.enquiries-table {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.enquiries-table table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.enquiries-table th,
+.enquiries-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.enquiries-table th {
+  background-color: #f8f9fe;
+  color: #8898aa;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.enquiries-table tbody tr:hover {
+  background-color: #f6f9fc;
+}
+
+/* ===================== Status Badge ===================== */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  border-radius: 15px;
+}
+
+.status-badge.open {
+  background-color: #2dce89;
+  color: #ffffff;
+}
+
+.status-badge.closed {
+  background-color: #8898aa;
+  color: #ffffff;
+}
+
+/* ===================== Action Buttons ===================== */
+.enquiry-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #5e72e4;
+}
+
+.edit-btn:hover {
+  background-color: #324cdd;
+}
+
+.delete-btn {
+  background-color: #f5365c;
+}
+
+.delete-btn:hover {
+  background-color: #d02c4a;
+}
+
+/* ===================== Toast Notifications ===================== */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 1rem 2rem;
+  background-color: #2dce89;
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 1000;
+}
+
+.toast.show {
+  display: block;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===================== Responsive Design ===================== */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .action-btn {
+    padding: 0.4rem;
+  }
+
+  .action-btn .material-icons-outlined {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===================== Modal Styles ===================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  font-size: 1.25rem;
+  color: #32325d;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #8898aa;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #f5365c;
+}
+
+/* ===================== Form Styling ===================== */
+#enquiryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#enquiryForm label {
+  font-size: 0.875rem;
+  color: #525f7f;
+  margin-bottom: 0.25rem;
+}
+
+#enquiryForm input,
+#enquiryForm select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f9fe;
+  color: #32325d;
+  transition: border-color 0.3s ease;
+}
+
+#enquiryForm input:focus,
+#enquiryForm select:focus {
+  border-color: #5e72e4;
+  outline: none;
+}
+
+#enquiryForm button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #5e72e4;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#enquiryForm button:hover {
+  background-color: #324cdd;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .enquiries-table table {
+    min-width: 600px;
+  }
+}
+.enquiries-table td {
+  word-break: break-word;
+  white-space: normal;
+  max-width: 200px;
+}
+
+
